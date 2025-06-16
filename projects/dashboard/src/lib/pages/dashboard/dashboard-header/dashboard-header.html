@@ -1,0 +1,16 @@
+<div class="header">
+  <h2 class="mat-title-large">AXIS Dashboard</h2>
+  <button mat-raised-button (click)="widgetsOpen.set(!widgetsOpen())">
+    @if (widgetsOpen()){
+    <mat-icon>close</mat-icon>
+    } @else {
+    <mat-icon>add_circle</mat-icon>
+    } Widgets
+  </button>
+  @if(widgetsOpen()){
+  <lib-widgets-panel
+    cdkDropList
+    (cdkDropListDropped)="widgetPutBack($event)"
+  ></lib-widgets-panel>
+  }
+</div>

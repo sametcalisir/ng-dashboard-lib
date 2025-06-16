@@ -1,0 +1,39 @@
+<mat-card
+  class="container"
+  [style.background-color]="data().backgroundColor"
+  [style.color]="data().color ?? 'inherit'"
+  cdkDrag
+  cdkDragPreviewContainer="parent"
+  #dragRef
+>
+  <!-- Card Header -->
+  <mat-card-header
+    class="header"
+    [style.--mdc-icon-button-icon-color]="data().color ?? 'inherit'"
+  >
+    <mat-card-title class="m-0">{{ data().label }}</mat-card-title>
+    @if(data().id !== 7) {
+    <button
+      mat-icon-button
+      class="settings-button"
+      (click)="showOptions.set(true)"
+    >
+      <mat-icon>settings</mat-icon>
+    </button>
+    }
+  </mat-card-header>
+
+  <!-- Card Content -->
+  <mat-card-content class="card-content">
+    <ng-container [ngComponentOutlet]="data().content"></ng-container>
+  </mat-card-content>
+
+  @if(showOptions()){
+  <lib-widget-options
+    [data]="data()"
+    [(showOptions)]="showOptions"
+  ></lib-widget-options>
+  }
+
+  <div *cdkDragPlaceholder></div>
+</mat-card>

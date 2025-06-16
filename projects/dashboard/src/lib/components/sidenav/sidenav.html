@@ -1,0 +1,81 @@
+<div class="sidenav-content-wrapper">
+  <button mat-icon-button (click)="onToggleMinimize()" class="minimize-button">
+    <mat-icon class="minimize-icon"
+      >{{ isMinimized() ? "chevron_right" : "chevron_left" }}</mat-icon
+    >
+  </button>
+
+  <mat-nav-list>
+    <div class="profile-section">
+      <button
+        mat-button
+        [matMenuTriggerFor]="profileMenu"
+        class="profile-button"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1654110455429-cf322b40a906?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Profil Image"
+          class="profile-image"
+        />
+        <div class="header-text">
+          <p class="profile-name">Mustafa Samet Çalışır</p>
+        </div>
+      </button>
+
+      <mat-menu #profileMenu="matMenu" xPosition="before">
+        <button mat-menu-item>
+          <mat-icon>account_circle</mat-icon>
+          <span>Profil</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Ayarlar</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Çıkış Yap</span>
+        </button>
+      </mat-menu>
+    </div>
+
+    <mat-nav-list>
+      <a
+        mat-list-item
+        *ngFor="let item of menuItems()"
+        [routerLink]="item.route"
+      >
+        <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+        <span matListItemTitle>{{ item.label }}</span>
+      </a>
+    </mat-nav-list>
+
+    <div class="sidenav-footer">
+      <button mat-button [matMenuTriggerFor]="footerMenu" class="footer-button">
+        <div class="footer-text" *ngIf="!isMinimized()">
+          <div class="company-name">
+            <p>&copy; 2025 AXIS</p>
+          </div>
+        </div>
+      </button>
+      <div class="version">
+        <p>v1.0.0</p>
+      </div>
+    </div>
+
+    <mat-menu #footerMenu="matMenu" xPosition="before">
+      <button mat-menu-item>
+        <mat-icon>info</mat-icon>
+        <span>Hakkında</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>help</mat-icon>
+        <span>Yardım</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>contact_support</mat-icon>
+        <span>Destek</span>
+      </button>
+    </mat-menu>
+  </mat-nav-list>
+</div>

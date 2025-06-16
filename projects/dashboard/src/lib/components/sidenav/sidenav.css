@@ -1,0 +1,170 @@
+.profile-section {
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.profile-section:hover {
+  transform: scale(0.98);
+}
+
+.profile-section .profile-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+.profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 8px;
+  display: block;
+  border: 3px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.profile-name {
+  font-weight: 500;
+  font-size: 1rem;
+  color: inherit;
+  transition: opacity 0.3s ease;
+  margin-top: 8px;
+}
+
+/* Menu Styling */
+.mat-menu-panel {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  min-width: 200px !important;
+}
+
+.mat-menu-panel .mat-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+}
+
+.mat-menu-panel .mat-menu-item mat-icon {
+  margin-right: 12px;
+}
+
+.mat-menu-panel .mat-menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+.mat-menu-panel .mat-divider {
+  margin: 4px 0;
+}
+
+/* Minimized state */
+:host-context(.minimized) .profile-section {
+  padding: 10px 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+:host-context(.minimized) .profile-section .profile-button {
+  flex-direction: column;
+}
+
+:host-context(.minimized) .profile-name {
+  opacity: 0;
+  display: none;
+}
+
+:host-context(.minimized) .profile-image {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+:host-context(.minimized) .mat-menu-panel {
+  margin-left: -160px;
+}
+
+/* Minimized state */
+:host-context(.minimized) .main-nav-items {
+  align-items: center;
+}
+
+:host-context(.minimized) .main-nav-items-icon {
+  justify-content: center;
+  padding: 12px 0;
+}
+
+:host-context(.minimized) .main-nav-items-icon mat-icon {
+  margin: 0 !important;
+}
+
+.sidenav-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  color: inherit;
+  font-size: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidenav-footer .version {
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.footer-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+:host-context(.minimized) .version {
+  margin-right: 7px;
+}
+
+/* Menü tetikleyicisinin tam genişlikte olması için */
+.mat-list-item {
+  padding: 0 !important;
+}
+
+/* Minimize Icon Position */
+.sidenav-content-wrapper button[mat-icon-button] {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+}
+
+/* Minimized state */
+:host-context(.minimized) {
+  .sidenav-content-wrapper {
+    overflow: hidden; /* Minimize durumunda footer kısmında çubuk çıkmaması için */
+  }
+}
+
+::ng-deep .minimize-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-input-container {
+  margin-bottom: 15px;
+}

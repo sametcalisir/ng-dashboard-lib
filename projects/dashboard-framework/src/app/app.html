@@ -1,0 +1,27 @@
+<lib-toolbar (toggleSidenav)="toggleLeftSidenav()"></lib-toolbar>
+<mat-sidenav-container class="sidenav-container">
+  <!-- Left Sidenav -->
+  <mat-sidenav
+    #leftSidenav
+    mode="side"
+    [opened]="leftSidenavOpen"
+    position="start"
+    [class.minimized]="isMinimized"
+    class="custom-sidenav"
+  >
+    <lib-sidenav
+      [isMinimized]="isMinimized"
+      (toggleMinimize)="toggleMinimize()"
+    >
+    </lib-sidenav>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content
+    [style.margin-left]="leftSidenavOpen ? drawerWidth : '0'"
+  >
+    <div class="content">
+      <lib-dashboard></lib-dashboard>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
