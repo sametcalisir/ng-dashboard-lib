@@ -6,7 +6,6 @@
   cdkDragPreviewContainer="parent"
   #dragRef
 >
-  <!-- Card Header -->
   <mat-card-header
     class="header"
     [style.--mdc-icon-button-icon-color]="data().color ?? 'inherit'"
@@ -23,7 +22,6 @@
     }
   </mat-card-header>
 
-  <!-- Card Content -->
   <mat-card-content class="card-content">
     <ng-container [ngComponentOutlet]="data().content"></ng-container>
   </mat-card-content>

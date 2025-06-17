@@ -9,7 +9,7 @@ export class DashboardManager {
   // Tüm mevcut widget'ların kataloğu (Add widget butonuna tıklanınca gösterilen componentlerin verileri buradan gönderilmektedir.)
   widgets = signal<Widgets[]>([]);
 
-  // DIŞARIDAN WIDGET EKLEME METODU (Kullanıcı projesi buraya widget gönderecek)
+  // Dışarıdan Widget Ekleme Metodu (Kullanıcı projesinden buraya widget gönderecek)
   registerWidget(widget: Omit<Widgets, 'id'> & { id?: number }): void {
     const newId = this.generateUniqueId(); // Otomatik ID üret (veya kullanıcı kendi ID'sini versin)
     const newWidget: Widgets = {
@@ -201,7 +201,7 @@ export class DashboardManager {
   });
 
   updateWidgetPosition(sourceWidgetId: number, targetWidgetId: number) {
-    // Eğer hedef veya kaynak id:7 ise işlem yapma (opsiyonel)
+    // Eğer hedef veya kaynak id:7 ise işlem yapma
     if (sourceWidgetId === 7 || targetWidgetId === 7) return;
 
     const sourceIndex = this.addedWidgets().findIndex(

@@ -22,8 +22,6 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './widget.scss',
 })
 export class Widget {
-  // Zorunlu input - Widget tipinde veri bekler
-  // Derleme zamanında kontrol edilir
   data = input.required<Widgets>();
 
   // Widget seçeneklerinin görünürlüğünü kontrol eder.

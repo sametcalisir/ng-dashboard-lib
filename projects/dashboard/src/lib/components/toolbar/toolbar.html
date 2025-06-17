@@ -9,9 +9,43 @@
   <div class="spacer"></div>
 
   <div class="flex-stretch"></div>
-  <button mat-icon-button class="theme-button"></button>
-
-  <button mat-icon-button class="custom-theme-button">
+  <button
+    mat-icon-button
+    [mat-menu-trigger-for]="themeMenu"
+    class="theme-button"
+  >
+    <mat-icon>{{ themeService.selectedTheme()?.icon }}</mat-icon>
+  </button>
+  <mat-menu #themeMenu="matMenu">
+    @for (theme of themeService.getThemes(); track theme.name) {
+    <button
+      [class.selected-theme]="themeService.selectedTheme()?.name === theme.name"
+      mat-menu-item
+      (click)="themeService.setTheme(theme.name)"
+    >
+      <mat-icon>{{ theme.icon }}</mat-icon>
+      <span>{{ theme.name | titlecase }}</span>
+    </button>
+    }
+  </mat-menu>
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="customThemeMenu"
+    class="custom-theme-button"
+  >
     <mat-icon>format_color_fill</mat-icon>
   </button>
+  <mat-menu #customThemeMenu="matMenu">
+    @for (customTheme of customThemeService.getThemes(); track customTheme.id) {
+    <button mat-menu-item (click)="customThemeService.setTheme(customTheme.id)">
+      <div class="theme-menu-item">
+        <div
+          class="color-preview"
+          [style.background-color]="customTheme.primary"
+        ></div>
+        <span>{{ customTheme.displayName }}</span>
+      </div>
+    </button>
+    }
+  </mat-menu>
 </mat-toolbar>

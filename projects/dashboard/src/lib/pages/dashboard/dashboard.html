@@ -1,8 +1,6 @@
 <div cdkDropListGroup>
   <lib-dashboard-header></lib-dashboard-header>
 
-  <!-- [data] property binding - component'e veri aktarmak için -->
-  <!-- servisten widget'ları alıyor -->
   <div #dashboard class="dashboard-widgets">
     @for (widget of store.addedWidgets(); track widget.id){
     <lib-widget
@@ -15,5 +13,3 @@
     <div cdkDropList></div>
   </div>
 </div>
-
-<!-- widget componenti > dashboard componentine oda verileri dashboardserviceten alıyor. -->
